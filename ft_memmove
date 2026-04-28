@@ -5,11 +5,17 @@ void  *ft_memmove(void *dest, const void *src, size_t n)
   unsigned char  *d;
   const unsigned char  *s;
   
-  d = (unsigned char *)dest;
+  d = (unsigned char *)dest;  
   s = (const unsigned char *)src;
-  while (n--)
+  if (d > s)
   {
-    *d++ = *s++;
+    while (n--)
+      d[n] = s[n];
+  }
+  else
+  {
+    while (n--)
+      *d++ = *s++;
   }
   return (dest);
 }
